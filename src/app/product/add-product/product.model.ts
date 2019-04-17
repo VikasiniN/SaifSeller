@@ -6,6 +6,8 @@ export class Product {
     price: string;
     color: string;
     productImageName: [string];
+    superCategory: string;
+    mainCategory: string;
     subCategory: string;
     overview: string;
     // details

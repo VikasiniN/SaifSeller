@@ -70,6 +70,8 @@ export class AddProductComponent implements OnInit {
   displayedColumns: string[] = ['moqName', 'moqDescription', 'moqQuantity'];
   moqData;
   waterProofValue = ['Yes', 'No'];
+  superCategoryId;
+  mainCategoryId;
 
   constructor(private fb: FormBuilder, private router: Router, private productService: ProductService, private snackBar: MatSnackBar) { }
 
@@ -144,6 +146,7 @@ export class AddProductComponent implements OnInit {
     });
   }
   selectedSuperCategory(val) {
+    this.superCategoryId = val._id;
     this.category = val;
     this.showSubCategory = false;
     this.showCategory = false;
@@ -160,6 +163,7 @@ export class AddProductComponent implements OnInit {
     }
  }
   selectedMainCategory(categoryVal) {
+    this.mainCategoryId = categoryVal._id;
     this.mainCategory = categoryVal.mainCategoryName;
     this.showCategory = false;
     this.filteredMainCategory = this.mainCategoryModel.filter(data => data._id === categoryVal._id);
@@ -217,6 +221,8 @@ this.subCategoryName = subCategoryVal.subCategoryName;
     this.productModel.price = this.productForm.controls.price.value;
     this.productModel.color = this.productForm.controls.color.value;
     // category
+    this.productModel.superCategory = this.superCategoryId;
+    this.productModel.mainCategory = this.mainCategoryId;
     this.productModel.subCategory = this.categories;
     // detials
     this.productModel.styleCode = this.productForm.controls.styleCode.value.toUpperCase();

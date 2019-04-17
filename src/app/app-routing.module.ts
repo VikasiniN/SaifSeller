@@ -25,6 +25,10 @@ const routes: Routes = [
     {
       path: 'settings',
       loadChildren: './settings/settings.module#SettingsModule'
+    },
+    {
+      path: 'customers',
+      loadChildren: './customer-management/customer-management.module#CustomerManagementModule'
     }
     /* {
       path: 'shared',

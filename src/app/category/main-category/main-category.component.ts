@@ -41,7 +41,7 @@ export class MainCategoryComponent implements OnInit {
   savedLength;
   savedCategory: SuperCategory;
   imageError: boolean;
-  displayedColumns: string[] = ['image', 'categoryName', 'description',  'delete'];
+  displayedColumns: string[] = [ 'categoryName', 'description',  'delete'];
   constructor(private fb: FormBuilder, private router: Router, private categoryService: CategoryService, private snackBar: MatSnackBar) { }
 
   ngOnInit() {
@@ -98,10 +98,6 @@ export class MainCategoryComponent implements OnInit {
     }
   }
   addMainCategory() {
-    if (this.fileToUpload === undefined) {
-      this.imageError = true;
-    } else {
-      this.imageError = false;
     this.message = 'Main Category Added';
     this.mainCategoryModel = new MainCategory(
       this.mainCategoryForm.controls.categoryName.value,
@@ -113,7 +109,7 @@ export class MainCategoryComponent implements OnInit {
       this.savedLength = data.length - 1;
       this.savedCategory = data[this.savedLength];
 
-      this.uploadImages(this.savedCategory);
+      /* this.uploadImages(this.savedCategory); */
     }, error => {
       console.log(error);
     });
@@ -121,7 +117,6 @@ export class MainCategoryComponent implements OnInit {
       duration: 3000,
     });
     this.mainCategoryForm.reset();
-  }
   }
   uploadImages(cat) {
     const formData: any = new FormData();
