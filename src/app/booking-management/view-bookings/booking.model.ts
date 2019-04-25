@@ -17,4 +17,5 @@ export class Booking {
        mobileNumber: string;
     }];
     orderStatus: string;
+    bookingStatus: string;
  }
