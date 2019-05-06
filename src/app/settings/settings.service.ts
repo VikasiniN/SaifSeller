@@ -10,6 +10,8 @@ import {Ads} from './ads/ads.model';
 import {Promotion} from './promotions/promotion.model';
 import {Footer} from './footer/footer.model';
 import {Product} from '../product/add-product/product.model';
+import {Support} from './support/support.model';
+import {ContactUs} from './contact-us/contact-us.model';
 
 @Injectable({
   providedIn: 'root'
@@ -101,5 +103,44 @@ export class SettingsService {
     const categoryUrl = 'product';
     const url: string = this.serviceUrl + categoryUrl;
     return this.httpClient.get<Product>(url);
+  }
+
+  // support
+
+  addSupport(data): Observable<any> {
+    const footerUrl = 'support';
+    const url: string = this.serviceUrl + footerUrl ;
+    return this.httpClient.post<Support>(url, data);
+  }
+
+  getSupportDetails(): Observable<any> {
+    const categoryUrl = 'supportDetails';
+    const url: string = this.serviceUrl + categoryUrl;
+    return this.httpClient.get<Support>(url);
+  }
+
+  updateSupportDetails(data , id): Observable<any> {
+    const addUrl = 'supportdetails/';
+    const url: string = this.serviceUrl + addUrl + id ;
+    return this.httpClient.put<Support>(url, data);
+  }
+
+  // contact us
+
+  addContact(data): Observable<any> {
+    const footerUrl = 'contactus';
+    const url: string = this.serviceUrl + footerUrl ;
+    return this.httpClient.post<ContactUs>(url, data);
+  }
+
+  getContactDetails(): Observable<any> {
+    const categoryUrl = 'contactDetails';
+    const url: string = this.serviceUrl + categoryUrl;
+    return this.httpClient.get<ContactUs>(url);
+  }
+  updateContactDetails(data , id): Observable<any> {
+    const addUrl = 'contactdetails/';
+    const url: string = this.serviceUrl + addUrl + id ;
+    return this.httpClient.put<Support>(url, data);
   }
 }

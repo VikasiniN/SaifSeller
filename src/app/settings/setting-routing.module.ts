@@ -10,6 +10,11 @@ import {PromotionsComponent} from './promotions/promotions.component';
 import {ViewPromotionsComponent} from './view-promotions/view-promotions.component';
 import {FooterComponent} from './footer/footer.component';
 import {ViewFooterComponent} from './view-footer/view-footer.component';
+import {SupportComponent} from './support/support.component';
+import {ViewSupportComponent} from './view-support/view-support.component';
+import {ContactUsComponent} from './contact-us/contact-us.component';
+import {ViewContactUsComponent} from './view-contact-us/view-contact-us.component';
+
 
 
 const routes: Routes = [{
@@ -44,6 +49,22 @@ const routes: Routes = [{
   path: 'viewfooter',
   component: ViewFooterComponent
 },
+{
+  path: 'support',
+  component: SupportComponent
+},
+{
+  path: 'viewsupport',
+  component: ViewSupportComponent
+},
+{
+  path: 'contactus',
+  component: ContactUsComponent
+},
+{
+  path: 'viewcontactus',
+  component: ViewContactUsComponent
+}
 ];
 
 @NgModule({
