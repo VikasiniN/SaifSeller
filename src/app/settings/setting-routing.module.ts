@@ -14,6 +14,8 @@ import {SupportComponent} from './support/support.component';
 import {ViewSupportComponent} from './view-support/view-support.component';
 import {ContactUsComponent} from './contact-us/contact-us.component';
 import {ViewContactUsComponent} from './view-contact-us/view-contact-us.component';
+import {PrivacyPolicyComponent} from './privacy-policy/privacy-policy.component';
+import {ViewPrivacyPolicyComponent} from './view-privacy-policy/view-privacy-policy.component';
 
 
 
@@ -64,6 +66,14 @@ const routes: Routes = [{
 {
   path: 'viewcontactus',
   component: ViewContactUsComponent
+},
+{
+  path: 'privacypolicy',
+  component: PrivacyPolicyComponent
+},
+{
+  path: 'viewprivacypolicy',
+  component: ViewPrivacyPolicyComponent
 }
 ];
 

@@ -12,6 +12,7 @@ import {Footer} from './footer/footer.model';
 import {Product} from '../product/add-product/product.model';
 import {Support} from './support/support.model';
 import {ContactUs} from './contact-us/contact-us.model';
+import {PrivacyPolicy} from './privacy-policy/privacy-policy.model';
 
 @Injectable({
   providedIn: 'root'
@@ -140,6 +141,24 @@ export class SettingsService {
   }
   updateContactDetails(data , id): Observable<any> {
     const addUrl = 'contactdetails/';
+    const url: string = this.serviceUrl + addUrl + id ;
+    return this.httpClient.put<Support>(url, data);
+  }
+
+  // policy
+  addPrivacyPolicy(data): Observable<any> {
+    const footerUrl = 'privacypolicy';
+    const url: string = this.serviceUrl + footerUrl ;
+    return this.httpClient.post<PrivacyPolicy>(url, data);
+  }
+
+  getPolicyDetails(): Observable<any> {
+    const categoryUrl = 'privacypolicy';
+    const url: string = this.serviceUrl + categoryUrl;
+    return this.httpClient.get<PrivacyPolicy>(url);
+  }
+  updatePrivacyPolicy(data , id): Observable<any> {
+    const addUrl = 'editprivacypolicy/';
     const url: string = this.serviceUrl + addUrl + id ;
     return this.httpClient.put<Support>(url, data);
   }
