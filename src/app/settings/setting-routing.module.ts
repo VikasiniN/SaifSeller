@@ -16,6 +16,11 @@ import {ContactUsComponent} from './contact-us/contact-us.component';
 import {ViewContactUsComponent} from './view-contact-us/view-contact-us.component';
 import {PrivacyPolicyComponent} from './privacy-policy/privacy-policy.component';
 import {ViewPrivacyPolicyComponent} from './view-privacy-policy/view-privacy-policy.component';
+import {FaqComponent} from './faq/faq.component';
+import {ViewFaqComponent} from './view-faq/view-faq.component';
+import {EditFaqComponent} from './edit-faq/edit-faq.component';
+import {TermsAndUseComponent} from './terms-and-use/terms-and-use.component';
+import {ViewTermsAndUseComponent} from './view-terms-and-use/view-terms-and-use.component';
 
 
 
@@ -74,6 +79,26 @@ const routes: Routes = [{
 {
   path: 'viewprivacypolicy',
   component: ViewPrivacyPolicyComponent
+},
+{
+  path: 'faq',
+  component: FaqComponent
+},
+{
+  path: 'viewfaq',
+  component: ViewFaqComponent
+},
+{
+  path: 'editfaq/:id',
+  component: EditFaqComponent
+},
+{
+  path: 'termsanduse',
+  component: TermsAndUseComponent
+},
+{
+  path: 'viewtermsanduse',
+  component: ViewTermsAndUseComponent
 }
 ];
 

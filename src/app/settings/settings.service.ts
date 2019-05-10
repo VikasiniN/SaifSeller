@@ -13,6 +13,8 @@ import {Product} from '../product/add-product/product.model';
 import {Support} from './support/support.model';
 import {ContactUs} from './contact-us/contact-us.model';
 import {PrivacyPolicy} from './privacy-policy/privacy-policy.model';
+import {FAQ} from './faq/faq.model';
+import {TermsUse} from './terms-and-use/termsuse.model';
 
 @Injectable({
   providedIn: 'root'
@@ -162,4 +164,55 @@ export class SettingsService {
     const url: string = this.serviceUrl + addUrl + id ;
     return this.httpClient.put<Support>(url, data);
   }
+  // faq
+  addFAQ(data): Observable<any> {
+    const footerUrl = 'faq';
+    const url: string = this.serviceUrl + footerUrl ;
+    return this.httpClient.post<FAQ>(url, data);
+  }
+  getFAQ(): Observable<any> {
+    const categoryUrl = 'faq';
+    const url: string = this.serviceUrl + categoryUrl;
+    return this.httpClient.get<FAQ>(url);
+  }
+  getSingleFAQ(id): Observable<any> {
+    const categoryUrl = 'singlefaq/';
+    const url: string = this.serviceUrl + categoryUrl + id;
+    return this.httpClient.get<FAQ>(url);
+  }
+  updateFAQ(data , id): Observable<any> {
+    const addUrl = 'editFAQ/';
+    const url: string = this.serviceUrl + addUrl + id ;
+    return this.httpClient.put<Support>(url, data);
+  }
+ deleteSingleFAQ(data): Observable<any> {
+  const deleteUrl = 'faq/';
+  const url: string = this.serviceUrl + deleteUrl + data._id;
+  return this.httpClient.delete<FAQ>(url);
+}
+
+
+// terms
+
+addTerms(data): Observable<any> {
+  const footerUrl = 'termsanduse';
+  const url: string = this.serviceUrl + footerUrl ;
+  return this.httpClient.post<TermsUse>(url, data);
+}
+
+getTerms(): Observable<any> {
+  const categoryUrl = 'termsanduse/';
+  const url: string = this.serviceUrl + categoryUrl;
+  return this.httpClient.get<TermsUse>(url);
+}
+updateTerm(data , id): Observable<any> {
+  const addUrl = 'editTerms/';
+  const url: string = this.serviceUrl + addUrl + id ;
+  return this.httpClient.put<Support>(url, data);
+}
+deleteSingleTerm(data): Observable<any> {
+const deleteUrl = 'terms/';
+const url: string = this.serviceUrl + deleteUrl + data;
+return this.httpClient.delete<FAQ>(url);
+}
 }
